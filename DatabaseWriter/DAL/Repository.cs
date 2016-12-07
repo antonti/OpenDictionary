@@ -50,11 +50,6 @@ namespace DatabaseWriter.DAL
             }
         }
 
-        public void AddRelations(IEnumerable dataset, Type t, IProgress<int> progress)
-        {
-
-        }
-
 
     }
 }
