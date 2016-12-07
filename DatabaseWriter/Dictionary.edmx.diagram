@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8114fb826f643ba9cc589c5234195ee" Name="Diagram1" DisplayType="true" ZoomLevel="95" >
+        <EntityTypeShape EntityType="Dictionary.Word" Width="1.5" PointX="1.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dictionary.Definition" Width="1.5" PointX="4.375" PointY="1.125" />
+        <AssociationConnector Association="Dictionary.WordDefinition" />
+        <AssociationConnector Association="Dictionary.Synonyms" />
+        <AssociationConnector Association="Dictionary.HyponymHypernym" />
+        <AssociationConnector Association="Dictionary.InstanceHasInstance" />
+        <AssociationConnector Association="Dictionary.EntailsEntailment" />
+        <AssociationConnector Association="Dictionary.MemberHolonymMeronym" />
+        <AssociationConnector Association="Dictionary.SubstanceHolonymMeronym" />
+        <AssociationConnector Association="Dictionary.PartHolonymMeronym" />
+        <AssociationConnector Association="Dictionary.DerivationallyRelated" />
+        <AssociationConnector Association="Dictionary.MemberOfClass" />
+        <AssociationConnector Association="Dictionary.CauseOf" />
+        <AssociationConnector Association="Dictionary.Attribute" />
+        <AssociationConnector Association="Dictionary.Antonyms" />
+        <AssociationConnector Association="Dictionary.SeeAlso" />
+        <AssociationConnector Association="Dictionary.ParticipleOf" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

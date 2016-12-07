@@ -1,0 +1,22 @@
+﻿<Window x:Class="DatabaseWriter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseWriter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <ContentControl Name="View" Margin="20" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="Back" Content="Back" Width="80" Height="30" Margin="0,0,10,0" Click="Back_Click" />
+            <Button Name="Next" Content="Next" Width="80" Height="30" Margin="0,0,10,0" Click="Next_Click" />
+            <Button Name="Cancel" Content="Cancel" Width="80" Height="30" Margin="0,0,10,0" Click="Cancel_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

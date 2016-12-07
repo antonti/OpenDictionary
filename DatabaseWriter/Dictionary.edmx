@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Dictionary.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DictionaryStoreContainer">
+    <EntitySet Name="Words" EntityType="Dictionary.Store.Words" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Definitions" EntityType="Dictionary.Store.Definitions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WordDefinition" EntityType="Dictionary.Store.WordDefinition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Synonyms" EntityType="Dictionary.Store.Synonyms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HyponymHypernym" EntityType="Dictionary.Store.HyponymHypernym" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InstanceHasInstance" EntityType="Dictionary.Store.InstanceHasInstance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EntailsEntailment" EntityType="Dictionary.Store.EntailsEntailment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberHolonymMeronym" EntityType="Dictionary.Store.MemberHolonymMeronym" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubstanceHolonymMeronym" EntityType="Dictionary.Store.SubstanceHolonymMeronym" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PartHolonymMeronym" EntityType="Dictionary.Store.PartHolonymMeronym" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DerivationallyRelated" EntityType="Dictionary.Store.DerivationallyRelated" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberOfClass" EntityType="Dictionary.Store.MemberOfClass" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CauseOf" EntityType="Dictionary.Store.CauseOf" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attribute" EntityType="Dictionary.Store.Attribute" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Antonyms" EntityType="Dictionary.Store.Antonyms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SeeAlso" EntityType="Dictionary.Store.SeeAlso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParticipleOf" EntityType="Dictionary.Store.ParticipleOf" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_WordDefinition_Word" Association="Dictionary.Store.FK_WordDefinition_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="WordDefinition" EntitySet="WordDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WordDefinition_Definition" Association="Dictionary.Store.FK_WordDefinition_Definition">
+      <End Role="Definition" EntitySet="Definitions" />
+      <End Role="WordDefinition" EntitySet="WordDefinition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Synonyms_Word" Association="Dictionary.Store.FK_Synonyms_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="Synonyms" EntitySet="Synonyms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Synonyms_Word1" Association="Dictionary.Store.FK_Synonyms_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="Synonyms" EntitySet="Synonyms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HyponymHypernym_Word" Association="Dictionary.Store.FK_HyponymHypernym_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="HyponymHypernym" EntitySet="HyponymHypernym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HyponymHypernym_Word1" Association="Dictionary.Store.FK_HyponymHypernym_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="HyponymHypernym" EntitySet="HyponymHypernym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstanceHasInstance_Word" Association="Dictionary.Store.FK_InstanceHasInstance_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="InstanceHasInstance" EntitySet="InstanceHasInstance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InstanceHasInstance_Word1" Association="Dictionary.Store.FK_InstanceHasInstance_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="InstanceHasInstance" EntitySet="InstanceHasInstance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntailsEntailment_Word" Association="Dictionary.Store.FK_EntailsEntailment_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="EntailsEntailment" EntitySet="EntailsEntailment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntailsEntailment_Word1" Association="Dictionary.Store.FK_EntailsEntailment_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="EntailsEntailment" EntitySet="EntailsEntailment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberHolonymMeronym_Word" Association="Dictionary.Store.FK_MemberHolonymMeronym_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="MemberHolonymMeronym" EntitySet="MemberHolonymMeronym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberHolonymMeronym_Word1" Association="Dictionary.Store.FK_MemberHolonymMeronym_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="MemberHolonymMeronym" EntitySet="MemberHolonymMeronym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubstanceHolonymMeronym_Word" Association="Dictionary.Store.FK_SubstanceHolonymMeronym_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="SubstanceHolonymMeronym" EntitySet="SubstanceHolonymMeronym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubstanceHolonymMeronym_Word1" Association="Dictionary.Store.FK_SubstanceHolonymMeronym_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="SubstanceHolonymMeronym" EntitySet="SubstanceHolonymMeronym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartHolonymMeronym_Word" Association="Dictionary.Store.FK_PartHolonymMeronym_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="PartHolonymMeronym" EntitySet="PartHolonymMeronym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartHolonymMeronym_Word1" Association="Dictionary.Store.FK_PartHolonymMeronym_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="PartHolonymMeronym" EntitySet="PartHolonymMeronym" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DerivationallyRelated_Word" Association="Dictionary.Store.FK_DerivationallyRelated_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="DerivationallyRelated" EntitySet="DerivationallyRelated" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DerivationallyRelated_Word1" Association="Dictionary.Store.FK_DerivationallyRelated_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="DerivationallyRelated" EntitySet="DerivationallyRelated" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberOfClass_Word" Association="Dictionary.Store.FK_MemberOfClass_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="MemberOfClass" EntitySet="MemberOfClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberOfClass_Word1" Association="Dictionary.Store.FK_MemberOfClass_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="MemberOfClass" EntitySet="MemberOfClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CauseOf_Word" Association="Dictionary.Store.FK_CauseOf_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="CauseOf" EntitySet="CauseOf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CauseOf_Word1" Association="Dictionary.Store.FK_CauseOf_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="CauseOf" EntitySet="CauseOf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attribute_Word" Association="Dictionary.Store.FK_Attribute_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="Attribute" EntitySet="Attribute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attribute_Word1" Association="Dictionary.Store.FK_Attribute_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="Attribute" EntitySet="Attribute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Antonyms_Word" Association="Dictionary.Store.FK_Antonyms_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="Antonyms" EntitySet="Antonyms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Antonyms_Word1" Association="Dictionary.Store.FK_Antonyms_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="Antonyms" EntitySet="Antonyms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SeeAlso_Word" Association="Dictionary.Store.FK_SeeAlso_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="SeeAlso" EntitySet="SeeAlso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SeeAlso_Word1" Association="Dictionary.Store.FK_SeeAlso_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="SeeAlso" EntitySet="SeeAlso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipleOf_Word" Association="Dictionary.Store.FK_ParticipleOf_Word">
+      <End Role="Word" EntitySet="Words" />
+      <End Role="ParticipleOf" EntitySet="ParticipleOf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipleOf_Word1" Association="Dictionary.Store.FK_ParticipleOf_Word1">
+      <End Role="Word1" EntitySet="Words" />
+      <End Role="ParticipleOf" EntitySet="ParticipleOf" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Words">
+    <Key>
+      <PropertyRef Name="WordID" />
+    </Key>
+    <Property Name="WordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="word" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Definitions">
+    <Key>
+      <PropertyRef Name="DefinitionID" />
+    </Key>
+    <Property Name="DefinitionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="partOfSpeech" Type="nvarchar" Nullable="false" MaxLength="4" />
+    <Property Name="definition" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="example" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="WordDefinition">
+    <Key>
+      <PropertyRef Name="Words_WordID" />
+      <PropertyRef Name="Definitions_DefinitionID" />
+    </Key>
+    <Property Name="Words_WordID" Type="int" Nullable="false" />
+    <Property Name="Definitions_DefinitionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Synonyms">
+    <Key>
+      <PropertyRef Name="Synonyms_Word1_WordID" />
+      <PropertyRef Name="Synonyms_WordID" />
+    </Key>
+    <Property Name="Synonyms_Word1_WordID" Type="int" Nullable="false" />
+    <Property Name="Synonyms_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HyponymHypernym">
+    <Key>
+      <PropertyRef Name="Hyponyms_WordID" />
+      <PropertyRef Name="Hypernyms_WordID" />
+    </Key>
+    <Property Name="Hyponyms_WordID" Type="int" Nullable="false" />
+    <Property Name="Hypernyms_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InstanceHasInstance">
+    <Key>
+      <PropertyRef Name="HasInstances_WordID" />
+      <PropertyRef Name="InstanceOf_WordID" />
+    </Key>
+    <Property Name="HasInstances_WordID" Type="int" Nullable="false" />
+    <Property Name="InstanceOf_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EntailsEntailment">
+    <Key>
+      <PropertyRef Name="EntailmentOf_WordID" />
+      <PropertyRef Name="Entails_WordID" />
+    </Key>
+    <Property Name="EntailmentOf_WordID" Type="int" Nullable="false" />
+    <Property Name="Entails_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberHolonymMeronym">
+    <Key>
+      <PropertyRef Name="MemberOf_WordID" />
+      <PropertyRef Name="Members_WordID" />
+    </Key>
+    <Property Name="MemberOf_WordID" Type="int" Nullable="false" />
+    <Property Name="Members_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubstanceHolonymMeronym">
+    <Key>
+      <PropertyRef Name="IsMadeFrom_WordID" />
+      <PropertyRef Name="Substances_WordID" />
+    </Key>
+    <Property Name="IsMadeFrom_WordID" Type="int" Nullable="false" />
+    <Property Name="Substances_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartHolonymMeronym">
+    <Key>
+      <PropertyRef Name="IsPartOf_WordID" />
+      <PropertyRef Name="Parts_WordID" />
+    </Key>
+    <Property Name="IsPartOf_WordID" Type="int" Nullable="false" />
+    <Property Name="Parts_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DerivationallyRelated">
+    <Key>
+      <PropertyRef Name="DerivationallyRelated_Word1_WordID" />
+      <PropertyRef Name="DerivationallyRelated_WordID" />
+    </Key>
+    <Property Name="DerivationallyRelated_Word1_WordID" Type="int" Nullable="false" />
+    <Property Name="DerivationallyRelated_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberOfClass">
+    <Key>
+      <PropertyRef Name="ClassMembers_WordID" />
+      <PropertyRef Name="Class_WordID" />
+    </Key>
+    <Property Name="ClassMembers_WordID" Type="int" Nullable="false" />
+    <Property Name="Class_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CauseOf">
+    <Key>
+      <PropertyRef Name="CauseOf_WordID" />
+      <PropertyRef Name="CauseOf_Word_WordID" />
+    </Key>
+    <Property Name="CauseOf_WordID" Type="int" Nullable="false" />
+    <Property Name="CauseOf_Word_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attribute">
+    <Key>
+      <PropertyRef Name="Attributes_WordID" />
+      <PropertyRef Name="AttributeOf_WordID" />
+    </Key>
+    <Property Name="Attributes_WordID" Type="int" Nullable="false" />
+    <Property Name="AttributeOf_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Antonyms">
+    <Key>
+      <PropertyRef Name="Antonyms_Word1_WordID" />
+      <PropertyRef Name="Antonyms_WordID" />
+    </Key>
+    <Property Name="Antonyms_Word1_WordID" Type="int" Nullable="false" />
+    <Property Name="Antonyms_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SeeAlso">
+    <Key>
+      <PropertyRef Name="SeeAlso_Word1_WordID" />
+      <PropertyRef Name="SeeAlso_WordID" />
+    </Key>
+    <Property Name="SeeAlso_Word1_WordID" Type="int" Nullable="false" />
+    <Property Name="SeeAlso_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParticipleOf">
+    <Key>
+      <PropertyRef Name="Participles_WordID" />
+      <PropertyRef Name="ParticipleOf_WordID" />
+    </Key>
+    <Property Name="Participles_WordID" Type="int" Nullable="false" />
+    <Property Name="ParticipleOf_WordID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_WordDefinition_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="WordDefinition" Type="Dictionary.Store.WordDefinition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="WordDefinition">
+        <PropertyRef Name="Words_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WordDefinition_Definition">
+    <End Role="WordDefinition" Type="Dictionary.Store.WordDefinition" Multiplicity="*" />
+    <End Role="Definition" Type="Dictionary.Store.Definitions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Definition">
+        <PropertyRef Name="DefinitionID" />
+      </Principal>
+      <Dependent Role="WordDefinition">
+        <PropertyRef Name="Definitions_DefinitionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Synonyms_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="Synonyms" Type="Dictionary.Store.Synonyms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="Synonyms">
+        <PropertyRef Name="Synonyms_Word1_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Synonyms_Word1">
+    <End Role="Synonyms" Type="Dictionary.Store.Synonyms" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="Synonyms">
+        <PropertyRef Name="Synonyms_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HyponymHypernym_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="HyponymHypernym" Type="Dictionary.Store.HyponymHypernym" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="HyponymHypernym">
+        <PropertyRef Name="Hyponyms_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HyponymHypernym_Word1">
+    <End Role="HyponymHypernym" Type="Dictionary.Store.HyponymHypernym" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="HyponymHypernym">
+        <PropertyRef Name="Hypernyms_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstanceHasInstance_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="InstanceHasInstance" Type="Dictionary.Store.InstanceHasInstance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="InstanceHasInstance">
+        <PropertyRef Name="HasInstances_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InstanceHasInstance_Word1">
+    <End Role="InstanceHasInstance" Type="Dictionary.Store.InstanceHasInstance" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="InstanceHasInstance">
+        <PropertyRef Name="InstanceOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntailsEntailment_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="EntailsEntailment" Type="Dictionary.Store.EntailsEntailment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="EntailsEntailment">
+        <PropertyRef Name="EntailmentOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntailsEntailment_Word1">
+    <End Role="EntailsEntailment" Type="Dictionary.Store.EntailsEntailment" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="EntailsEntailment">
+        <PropertyRef Name="Entails_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberHolonymMeronym_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="MemberHolonymMeronym" Type="Dictionary.Store.MemberHolonymMeronym" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="MemberHolonymMeronym">
+        <PropertyRef Name="MemberOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberHolonymMeronym_Word1">
+    <End Role="MemberHolonymMeronym" Type="Dictionary.Store.MemberHolonymMeronym" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="MemberHolonymMeronym">
+        <PropertyRef Name="Members_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubstanceHolonymMeronym_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="SubstanceHolonymMeronym" Type="Dictionary.Store.SubstanceHolonymMeronym" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="SubstanceHolonymMeronym">
+        <PropertyRef Name="IsMadeFrom_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubstanceHolonymMeronym_Word1">
+    <End Role="SubstanceHolonymMeronym" Type="Dictionary.Store.SubstanceHolonymMeronym" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="SubstanceHolonymMeronym">
+        <PropertyRef Name="Substances_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartHolonymMeronym_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="PartHolonymMeronym" Type="Dictionary.Store.PartHolonymMeronym" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="PartHolonymMeronym">
+        <PropertyRef Name="IsPartOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartHolonymMeronym_Word1">
+    <End Role="PartHolonymMeronym" Type="Dictionary.Store.PartHolonymMeronym" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="PartHolonymMeronym">
+        <PropertyRef Name="Parts_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DerivationallyRelated_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="DerivationallyRelated" Type="Dictionary.Store.DerivationallyRelated" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="DerivationallyRelated">
+        <PropertyRef Name="DerivationallyRelated_Word1_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DerivationallyRelated_Word1">
+    <End Role="DerivationallyRelated" Type="Dictionary.Store.DerivationallyRelated" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="DerivationallyRelated">
+        <PropertyRef Name="DerivationallyRelated_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberOfClass_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="MemberOfClass" Type="Dictionary.Store.MemberOfClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="MemberOfClass">
+        <PropertyRef Name="ClassMembers_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberOfClass_Word1">
+    <End Role="MemberOfClass" Type="Dictionary.Store.MemberOfClass" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="MemberOfClass">
+        <PropertyRef Name="Class_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CauseOf_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="CauseOf" Type="Dictionary.Store.CauseOf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="CauseOf">
+        <PropertyRef Name="CauseOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CauseOf_Word1">
+    <End Role="CauseOf" Type="Dictionary.Store.CauseOf" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="CauseOf">
+        <PropertyRef Name="CauseOf_Word_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attribute_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="Attribute" Type="Dictionary.Store.Attribute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="Attribute">
+        <PropertyRef Name="Attributes_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attribute_Word1">
+    <End Role="Attribute" Type="Dictionary.Store.Attribute" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="Attribute">
+        <PropertyRef Name="AttributeOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Antonyms_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="Antonyms" Type="Dictionary.Store.Antonyms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="Antonyms">
+        <PropertyRef Name="Antonyms_Word1_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Antonyms_Word1">
+    <End Role="Antonyms" Type="Dictionary.Store.Antonyms" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="Antonyms">
+        <PropertyRef Name="Antonyms_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SeeAlso_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="SeeAlso" Type="Dictionary.Store.SeeAlso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="SeeAlso">
+        <PropertyRef Name="SeeAlso_Word1_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SeeAlso_Word1">
+    <End Role="SeeAlso" Type="Dictionary.Store.SeeAlso" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="SeeAlso">
+        <PropertyRef Name="SeeAlso_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipleOf_Word">
+    <End Role="Word" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <End Role="ParticipleOf" Type="Dictionary.Store.ParticipleOf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Word">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="ParticipleOf">
+        <PropertyRef Name="Participles_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipleOf_Word1">
+    <End Role="ParticipleOf" Type="Dictionary.Store.ParticipleOf" Multiplicity="*" />
+    <End Role="Word1" Type="Dictionary.Store.Words" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Word1">
+        <PropertyRef Name="WordID" />
+      </Principal>
+      <Dependent Role="ParticipleOf">
+        <PropertyRef Name="ParticipleOf_WordID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Dictionary" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DictionaryContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Words" EntityType="Dictionary.Word" />
+          <EntitySet Name="Definitions" EntityType="Dictionary.Definition" />
+          <AssociationSet Name="WordDefinition" Association="Dictionary.WordDefinition">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Definition" EntitySet="Definitions" />
+          </AssociationSet>
+          <AssociationSet Name="Synonyms" Association="Dictionary.Synonyms">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="HyponymHypernym" Association="Dictionary.HyponymHypernym">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="InstanceHasInstance" Association="Dictionary.InstanceHasInstance">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="EntailsEntailment" Association="Dictionary.EntailsEntailment">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="MemberHolonymMeronym" Association="Dictionary.MemberHolonymMeronym">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="SubstanceHolonymMeronym" Association="Dictionary.SubstanceHolonymMeronym">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="PartHolonymMeronym" Association="Dictionary.PartHolonymMeronym">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="DerivationallyRelated" Association="Dictionary.DerivationallyRelated">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="MemberOfClass" Association="Dictionary.MemberOfClass">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="CauseOf" Association="Dictionary.CauseOf">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="Attribute" Association="Dictionary.Attribute">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="Antonyms" Association="Dictionary.Antonyms">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="SeeAlso" Association="Dictionary.SeeAlso">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+          <AssociationSet Name="ParticipleOf" Association="Dictionary.ParticipleOf">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Word1" EntitySet="Words" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="WordID" />
+          </Key>
+          <Property Name="WordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="word" Type="String" Nullable="false" />
+          <NavigationProperty Name="Definitions" Relationship="Dictionary.WordDefinition" FromRole="Word" ToRole="Definition" />
+          <NavigationProperty Name="Synonyms" Relationship="Dictionary.Synonyms" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="Hypernyms" Relationship="Dictionary.HyponymHypernym" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="Hyponyms" Relationship="Dictionary.HyponymHypernym" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="InstanceOf" Relationship="Dictionary.InstanceHasInstance" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="HasInstances" Relationship="Dictionary.InstanceHasInstance" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="Entails" Relationship="Dictionary.EntailsEntailment" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="EntailmentOf" Relationship="Dictionary.EntailsEntailment" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="Members" Relationship="Dictionary.MemberHolonymMeronym" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="MemberOf" Relationship="Dictionary.MemberHolonymMeronym" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="Substances" Relationship="Dictionary.SubstanceHolonymMeronym" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="IsMadeFrom" Relationship="Dictionary.SubstanceHolonymMeronym" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="Parts" Relationship="Dictionary.PartHolonymMeronym" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="IsPartOf" Relationship="Dictionary.PartHolonymMeronym" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="DerivationallyRelated" Relationship="Dictionary.DerivationallyRelated" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="Class" Relationship="Dictionary.MemberOfClass" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="ClassMembers" Relationship="Dictionary.MemberOfClass" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="CauseOf" Relationship="Dictionary.CauseOf" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="AttributeOf" Relationship="Dictionary.Attribute" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="Attributes" Relationship="Dictionary.Attribute" FromRole="Word1" ToRole="Word" />
+          <NavigationProperty Name="Antonyms" Relationship="Dictionary.Antonyms" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="SeeAlso" Relationship="Dictionary.SeeAlso" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="ParticipleOf" Relationship="Dictionary.ParticipleOf" FromRole="Word" ToRole="Word1" />
+          <NavigationProperty Name="Participles" Relationship="Dictionary.ParticipleOf" FromRole="Word1" ToRole="Word" />
+        </EntityType>
+        <EntityType Name="Definition">
+          <Key>
+            <PropertyRef Name="DefinitionID" />
+          </Key>
+          <Property Name="DefinitionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="partOfSpeech" Type="String" Nullable="false" MaxLength="4" />
+          <Property Name="definition" Type="String" Nullable="false" />
+          <Property Name="example" Type="String" Nullable="true" />
+          <NavigationProperty Name="Words" Relationship="Dictionary.WordDefinition" FromRole="Definition" ToRole="Word" />
+        </EntityType>
+        <Association Name="WordDefinition">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Definition" Role="Definition" Multiplicity="*" />
+        </Association>
+        <Association Name="Synonyms">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="HyponymHypernym">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="InstanceHasInstance">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="EntailsEntailment">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="MemberHolonymMeronym">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="SubstanceHolonymMeronym">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="PartHolonymMeronym">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="DerivationallyRelated">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="MemberOfClass">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="CauseOf">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="Attribute">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="Antonyms">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="SeeAlso">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+        <Association Name="ParticipleOf">
+          <End Type="Dictionary.Word" Role="Word" Multiplicity="*" />
+          <End Type="Dictionary.Word" Role="Word1" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DictionaryStoreContainer" CdmEntityContainer="DictionaryContainer">
+    <EntitySetMapping Name="Words">
+      <EntityTypeMapping TypeName="IsTypeOf(Dictionary.Word)">
+        <MappingFragment StoreEntitySet="Words">
+          <ScalarProperty Name="WordID" ColumnName="WordID" />
+          <ScalarProperty Name="word" ColumnName="word" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Definitions">
+      <EntityTypeMapping TypeName="IsTypeOf(Dictionary.Definition)">
+        <MappingFragment StoreEntitySet="Definitions">
+          <ScalarProperty Name="DefinitionID" ColumnName="DefinitionID" />
+          <ScalarProperty Name="partOfSpeech" ColumnName="partOfSpeech" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="example" ColumnName="example" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="WordDefinition" TypeName="Dictionary.WordDefinition" StoreEntitySet="WordDefinition">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="Words_WordID" />
+      </EndProperty>
+      <EndProperty Name="Definition">
+        <ScalarProperty Name="DefinitionID" ColumnName="Definitions_DefinitionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Synonyms" TypeName="Dictionary.Synonyms" StoreEntitySet="Synonyms">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="Synonyms_Word1_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Synonyms_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HyponymHypernym" TypeName="Dictionary.HyponymHypernym" StoreEntitySet="HyponymHypernym">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="Hyponyms_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Hypernyms_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InstanceHasInstance" TypeName="Dictionary.InstanceHasInstance" StoreEntitySet="InstanceHasInstance">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="HasInstances_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="InstanceOf_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EntailsEntailment" TypeName="Dictionary.EntailsEntailment" StoreEntitySet="EntailsEntailment">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="EntailmentOf_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Entails_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberHolonymMeronym" TypeName="Dictionary.MemberHolonymMeronym" StoreEntitySet="MemberHolonymMeronym">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="MemberOf_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Members_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SubstanceHolonymMeronym" TypeName="Dictionary.SubstanceHolonymMeronym" StoreEntitySet="SubstanceHolonymMeronym">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="IsMadeFrom_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Substances_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PartHolonymMeronym" TypeName="Dictionary.PartHolonymMeronym" StoreEntitySet="PartHolonymMeronym">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="IsPartOf_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Parts_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DerivationallyRelated" TypeName="Dictionary.DerivationallyRelated" StoreEntitySet="DerivationallyRelated">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="DerivationallyRelated_Word1_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="DerivationallyRelated_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MemberOfClass" TypeName="Dictionary.MemberOfClass" StoreEntitySet="MemberOfClass">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="ClassMembers_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Class_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CauseOf" TypeName="Dictionary.CauseOf" StoreEntitySet="CauseOf">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="CauseOf_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="CauseOf_Word_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Attribute" TypeName="Dictionary.Attribute" StoreEntitySet="Attribute">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="Attributes_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="AttributeOf_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Antonyms" TypeName="Dictionary.Antonyms" StoreEntitySet="Antonyms">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="Antonyms_Word1_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="Antonyms_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SeeAlso" TypeName="Dictionary.SeeAlso" StoreEntitySet="SeeAlso">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="SeeAlso_Word1_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="SeeAlso_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ParticipleOf" TypeName="Dictionary.ParticipleOf" StoreEntitySet="ParticipleOf">
+      <EndProperty Name="Word">
+        <ScalarProperty Name="WordID" ColumnName="Participles_WordID" />
+      </EndProperty>
+      <EndProperty Name="Word1">
+        <ScalarProperty Name="WordID" ColumnName="ParticipleOf_WordID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
