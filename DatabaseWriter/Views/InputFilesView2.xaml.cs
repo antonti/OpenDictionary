@@ -22,15 +22,14 @@ namespace DatabaseWriter.Views
     /// </summary>
     public partial class InputFilesView2 : UserControl
     {
-        private string _inputFilePath1;
-        private string _inputFilePath2;
+        public string _inputFilePath1;
+        public string _inputFilePath2;
 
         public InputFilesView2()
         {
             InitializeComponent();
             _inputFilePath1 = string.Empty;
             _inputFilePath2 = string.Empty;
-            Router.Input = new string[2];
         }
 
         private void ChooseFile1_Click(object sender, RoutedEventArgs e)
@@ -41,7 +40,7 @@ namespace DatabaseWriter.Views
             if (openFileDialog.ShowDialog() == true)
             {
                 _inputFilePath1 = openFileDialog.FileName;
-                Router.Input[0] = _inputFilePath1;
+                Router.CurrentOperationModel.MapInputData(this);
             }
         }
         
@@ -53,7 +52,7 @@ namespace DatabaseWriter.Views
             if (openFileDialog.ShowDialog() == true)
             {
                 _inputFilePath2 = openFileDialog.FileName;
-                Router.Input[1] = _inputFilePath2;
+                Router.CurrentOperationModel.MapInputData(this);
             }
         }
     }

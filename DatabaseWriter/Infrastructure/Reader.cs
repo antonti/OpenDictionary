@@ -1,24 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseWriter.Infrastructure
 {
     class Reader
     {
-        public List<string[]> Read(IEnumerable<string> paths)
+        public string[] Read(string path)
         {
-            List<string[]> dataSets = new List<string[]>();
+            return File.ReadAllLines(path);
+        }
 
-            foreach (var item in paths)
-            {
-                var array = File.ReadAllLines(item);
-                dataSets.Add(array);
-            }
-            return dataSets;
+        public List<string[]> Read(string path1, string path2)
+        {
+            List<string[]> dataSet = new List<string[]>();
+
+            var array1 = File.ReadAllLines(path1);
+            var array2 = File.ReadAllLines(path2);
+            dataSet.Add(array1);
+            dataSet.Add(array2);
+
+            return dataSet;
         }
     }
 }

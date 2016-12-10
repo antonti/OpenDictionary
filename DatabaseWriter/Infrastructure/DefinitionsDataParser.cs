@@ -10,20 +10,13 @@ using System.Threading.Tasks;
 
 namespace DatabaseWriter
 {
-    public class DefinitionsDataParser : Parser 
+    public class DefinitionsDataParser
     {
-        public override Type EntityType
-        {
-            get
-            {
-                return typeof(Definition);
-            }
-        }
 
-        public override IEnumerable Parse(List<string[]> data, IProgress<int> progress)
+        public IEnumerable<Definition> Parse(string[] data, IProgress<int> progress)
         {
             List<Definition> definitions = new List<Definition>();
-            foreach (var item in data[0])
+            foreach (var item in data)
             {
                 if (item == string.Empty) continue;
                 var cleanLine = item.Trim('g', '(', ')', '.');

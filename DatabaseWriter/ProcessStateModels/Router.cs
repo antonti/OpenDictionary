@@ -13,7 +13,7 @@ namespace DatabaseWriter.ProcessStateModels
     {
         private static Dictionary<string, List<Func<UserControl>>> _routes;
 
-        private static Dictionary<string, Func<Parser>> _parsers;
+        private static Dictionary<string, Func<IOperationModel>> _operationModels;
 
         private static string _operationType;
 
@@ -26,9 +26,9 @@ namespace DatabaseWriter.ProcessStateModels
             }
         }
 
-        public static string[] Input { get; set; }
-
         public static List<UserControl> CurrentRoute { get; private set; }
+
+        public static IOperationModel CurrentOperationModel { get; private set; }
 
         static Router()
         {
@@ -46,10 +46,10 @@ namespace DatabaseWriter.ProcessStateModels
                 () => new StartupView(),
                 () => new InputFilesView2(),
                 () => new ProgressBarView() });
-            _parsers = new Dictionary<string, Func<Parser>>();
-            _parsers.Add("word", () => new WordsDataParser());
-            _parsers.Add("definition", () => new DefinitionsDataParser());
-            _parsers.Add("word-definition relationship", () => new WordDefinitionParser());
+            _operationModels = new Dictionary<string, Func<IOperationModel>>();
+            _operationModels.Add("word", () => new WordsOperationModel());
+            _operationModels.Add("definition", () => new DefinitionsOperationModel());
+            _operationModels.Add("word-definition relationship", () => new WordDefinitionOperationModel());
         }
 
         private static void ChangeRoute()
@@ -60,11 +60,7 @@ namespace DatabaseWriter.ProcessStateModels
                 var view = item();
                 CurrentRoute.Add(view);
             }
-        }
-
-        public static Parser GetSuitableParser()
-        {
-            return _parsers[OperationType]();
+            CurrentOperationModel = _operationModels[OperationType]();
         }
 
 

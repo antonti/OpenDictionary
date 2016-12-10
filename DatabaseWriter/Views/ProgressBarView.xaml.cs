@@ -30,16 +30,11 @@ namespace DatabaseWriter.Views
 
         private async void ProgressBar_Loaded(object sender, RoutedEventArgs e)
         {
-            var reader = new Reader();
-            var data = reader.Read(Router.Input);
-            var parser = Router.GetSuitableParser();
-
             var progress = new Progress<int>(percent => ProgressBar.Value = percent);
-            var entitySet = await Task.Run(() => parser.Parse(data, progress));
-            var repo = new Repository();
+            await Task.Run(() => Router.CurrentOperationModel.ExecuteStep1(progress));
             ProgressBar.Value = 0;
             var progress2 = new Progress<int>(percent => ProgressBar.Value = percent);
-            await Task.Run(() => repo.Add(entitySet, parser.EntityType, progress2));
+            await Task.Run(() => Router.CurrentOperationModel.ExecuteStep2(progress2));
         }
     }
 }

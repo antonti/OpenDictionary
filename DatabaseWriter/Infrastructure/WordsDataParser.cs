@@ -10,20 +10,13 @@ using System.Threading.Tasks;
 
 namespace DatabaseWriter
 {
-    public class WordsDataParser : Parser
+    public class WordsDataParser
     {
-        public override Type EntityType
-        {
-            get
-            {
-                return typeof(Word);
-            }
-        }
 
-        public override IEnumerable Parse(List<string[]> data, IProgress<int> progress)
+        public IEnumerable<Word> Parse(string[] data, IProgress<int> progress)
         {
             List<Word> words = new List<Word>();
-            foreach (var item in data[0])
+            foreach (var item in data)
             {
                 if (item == string.Empty) continue;
                 var word = item.Split(':').First();

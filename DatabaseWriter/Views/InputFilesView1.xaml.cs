@@ -28,7 +28,6 @@ namespace DatabaseWriter.Views
         {
             InitializeComponent();
             _inputFilePath = string.Empty;
-            Router.Input = new string[1];
         }
 
         private void ChooseFile_Click(object sender, RoutedEventArgs e)
@@ -39,7 +38,7 @@ namespace DatabaseWriter.Views
             if (openFileDialog.ShowDialog() == true)
             {
                 _inputFilePath = openFileDialog.FileName;
-                Router.Input[0] = _inputFilePath;
+                Router.CurrentOperationModel.MapInputData(this);
             }
         }
     }
