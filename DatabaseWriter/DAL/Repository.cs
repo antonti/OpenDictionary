@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseWriter.DAL
 {
@@ -41,12 +37,12 @@ namespace DatabaseWriter.DAL
             }
             finally
             {
-                progress.Report(100);
                 if (dbContext != null)
                 {
                     dbContext.SaveChanges();
                     dbContext.Dispose();
                 }
+                progress.Report(100);
             }
         }
 

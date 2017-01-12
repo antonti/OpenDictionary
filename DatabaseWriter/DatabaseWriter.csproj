@@ -71,8 +71,8 @@
     <Compile Include="Definition.cs">
       <DependentUpon>DictionaryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\IOperationModel.cs" />
-    <Compile Include="OperationModels\DefinitionsOperationModel.cs" />
+    <Compile Include="Infrastructure\OperationModelBase.cs" />
+    <Compile Include="Infrastructure\DefinitionsOperationModel.cs" />
     <Compile Include="DictionaryModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,18 +83,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DictionaryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\DefinitionsDataParser.cs" />
-    <Compile Include="Infrastructure\Reader.cs" />
-    <Compile Include="Infrastructure\WordDefinitionParser.cs" />
-    <Compile Include="Infrastructure\WordsDataParser.cs" />
-    <Compile Include="OperationModels\WordsOperationModel.cs" />
-    <Compile Include="OperationModels\WordDefinitionOperationModel.cs" />
-    <Compile Include="ProcessStateModels\Router.cs" />
-    <Compile Include="Views\InputFilesView1.xaml.cs">
-      <DependentUpon>InputFilesView1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InputFilesView2.xaml.cs">
-      <DependentUpon>InputFilesView2.xaml</DependentUpon>
+    <Compile Include="Data Parsers\DefinitionsDataParser.cs" />
+    <Compile Include="Data Parsers\WordDefinitionParser.cs" />
+    <Compile Include="Data Parsers\WordsDataParser.cs" />
+    <Compile Include="Infrastructure\WordsOperationModel.cs" />
+    <Compile Include="Infrastructure\WordDefinitionOperationModel.cs" />
+    <Compile Include="Infrastructure\Router.cs" />
+    <Compile Include="Views\MultipleInputFilePicker.xaml.cs">
+      <DependentUpon>MultipleInputFilePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProgressBarView.xaml.cs">
       <DependentUpon>ProgressBarView.xaml</DependentUpon>
@@ -105,11 +101,7 @@
     <Compile Include="Word.cs">
       <DependentUpon>DictionaryModel.tt</DependentUpon>
     </Compile>
-    <Page Include="Views\InputFilesView1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\InputFilesView2.xaml">
+    <Page Include="Views\MultipleInputFilePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

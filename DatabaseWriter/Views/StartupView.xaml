@@ -9,11 +9,7 @@
     
     <StackPanel>
         <TextBlock Height="50" Text="I want to insert into database(choose):" Padding="10" FontSize="18" />
-        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Height="25" Margin="0,20,0,0" Width="300" SelectionChanged="comboBox_SelectionChanged">
-            <ComboBoxItem>word</ComboBoxItem>
-            <ComboBoxItem>definition</ComboBoxItem>
-            <ComboBoxItem>word-definition relationship</ComboBoxItem>
-        </ComboBox>
+        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Height="25" Margin="0,20,0,0" Width="300" SelectionChanged="comboBox_SelectionChanged" />
     </StackPanel>
     
 </UserControl>
