@@ -9,54 +9,37 @@ namespace DatabaseWriter.DAL
 {
     public class Repository
     {
-        public void Add<T>(IEnumerable<T> data, IProgress<int> progress) where T : class
+        private IProgress<int> _progress;
+        private int _onePercent;
+        private int _currentProgress;
+
+        public Repository(IProgress<int> p)
         {
-            var dbContext = new DictionaryContainer();
-            dbContext.Configuration.ValidateOnSaveEnabled = false;
-            dbContext.Configuration.AutoDetectChangesEnabled = false;
-            int onePercent = data.Count()/100;
-            int count = 0;
-            int percent = 0;
-            try
-            {
-                foreach (var item in data)
-                {
-                    if (count % 100 == 0)
-                    {
-                        dbContext.SaveChanges();
-                        dbContext.Dispose();
-                        dbContext = new DictionaryContainer();
-                        dbContext.Configuration.AutoDetectChangesEnabled = false;
-                        dbContext.Configuration.ValidateOnSaveEnabled = false;
-                    }
-                    dbContext.Set<T>().Add(item);
-                    count++;
-                    if(count % onePercent == 0) { percent++; progress.Report(percent); } 
-                }
-                
-            }
-            finally
-            {
-                if (dbContext != null)
-                {
-                    dbContext.SaveChanges();
-                    dbContext.Dispose();
-                }
-                progress.Report(100);
-            }
+            _progress = p;
+            _currentProgress = 0;
         }
 
-        public void AddUsingSqlBulkCopy(DataTable data, IProgress<int> progress)
+
+        public void AddUsingSqlBulkCopy(DataTable data)
         {
             var connectionStr = ConfigurationManager.ConnectionStrings["Dictionary"].ConnectionString;
             using (SqlBulkCopy sbc = new SqlBulkCopy(connectionStr))
             {
                 sbc.DestinationTableName = data.TableName;
-                progress.Report(10);
+                sbc.SqlRowsCopied += Sbc_SqlRowsCopied;
+                _onePercent = data.Rows.Count / 100;
+                sbc.NotifyAfter = _onePercent;
                 sbc.WriteToServer(data);
-                progress.Report(100);
             }
+            _progress.Report(100);
         }
+
+        private void Sbc_SqlRowsCopied(object sender, SqlRowsCopiedEventArgs e)
+        {
+            _currentProgress += 1;
+            _progress.Report(_currentProgress);
+        }
+
 
     }
 }

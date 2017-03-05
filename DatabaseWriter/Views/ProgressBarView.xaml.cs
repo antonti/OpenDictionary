@@ -11,18 +11,19 @@ namespace DatabaseWriter.Views
     /// </summary>
     public partial class ProgressBarView : UserControl
     {
-        private Router _router;
+        private OperationModelCreator _operationModelCreator;
 
-        public ProgressBarView(Router router)
+        public ProgressBarView(OperationModelCreator opModelCreator)
         {
             InitializeComponent();
-            _router = router;
+            _operationModelCreator = opModelCreator;
         }
 
         private async void ProgressBar_Loaded(object sender, RoutedEventArgs e)
         {
             var progress = new Progress<int>(percent => ProgressBar.Value = percent);
-            await Task.Run(() => _router.CurrentOperation.Execute(progress));
+            _operationModelCreator.CurrentOperation.MapInputData();
+            await Task.Run(() => _operationModelCreator.CurrentOperation.Execute(progress));
         }
     }
 }

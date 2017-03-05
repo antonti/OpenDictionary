@@ -1,0 +1,89 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #fbfaf8;
+}
+
+#navbar {
+    padding: 0px 5px;
+    background-color: #ffffff;
+    height: 50px;
+    border-bottom: 1px solid #a5a09d;
+    color: #8e4d22;
+    text-decoration: none;
+}
+
+#navbar div {
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#navbar-menu {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#navbar ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+#navbar li {
+    display: inline-block;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+.left-area {
+    float: left;
+}
+
+.right-area {
+    float: right;
+}
+
+#logo a {
+    font-size: xx-large;
+}
+
+form {
+    font-size: 2em;
+    height: auto;
+}
+
+input[type=search] {
+    width: 280px;
+}
+
+input[type=submit] {
+    background-color: #672b0d;
+    color: beige;
+    border: none;
+    width: 50px;
+}
+
+#container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#content {
+    min-height: 500px;
+}
+
+.definition {
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #311102;
+}
+
+.example {
+    font-size: larger;
+    color: #8e4d22;
+}
+
+

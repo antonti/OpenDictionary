@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseWriter", "DatabaseWriter\DatabaseWriter.csproj", "{4D5FE5D8-D352-4732-8209-1886184E521B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseWriter.Tests", "DatabaseWriter.Tests\DatabaseWriter.Tests.csproj", "{ABA61FEA-AC40-401E-9536-7BC28C48C182}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryWebAPI", "DictionaryWebAPI\DictionaryWebAPI.csproj", "{AD430C28-5916-463A-96EF-26257C052107}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryWebAPI.Tests", "DictionaryWebAPI.Tests\DictionaryWebAPI.Tests.csproj", "{2DBCC3B5-2162-4098-B1F2-305CAC2CC8D7}"
@@ -23,10 +21,6 @@ Global
 		{4D5FE5D8-D352-4732-8209-1886184E521B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5FE5D8-D352-4732-8209-1886184E521B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D5FE5D8-D352-4732-8209-1886184E521B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABA61FEA-AC40-401E-9536-7BC28C48C182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABA61FEA-AC40-401E-9536-7BC28C48C182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABA61FEA-AC40-401E-9536-7BC28C48C182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABA61FEA-AC40-401E-9536-7BC28C48C182}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AD430C28-5916-463A-96EF-26257C052107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AD430C28-5916-463A-96EF-26257C052107}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD430C28-5916-463A-96EF-26257C052107}.Release|Any CPU.ActiveCfg = Release|Any CPU

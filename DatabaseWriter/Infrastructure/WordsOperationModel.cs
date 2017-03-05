@@ -9,32 +9,36 @@ namespace DatabaseWriter.Infrastructure
 {
     public class WordsOperationModel : OperationModelBase
     {
-        private MultipleInputFilePicker _inputView;
+        private string _wordsFilePath;
+        public string WordsFilePath
+        {
+            private get { return _wordsFilePath; }
+            set
+            {
+                SetFilePath(ref _wordsFilePath, value, 0);
+            }
+        }
 
-        public string WordsFilePath { get; set; }
-
-        public WordsOperationModel(MultipleInputFilePicker view)
+        public WordsOperationModel(InputPickerView view)
         {
             _inputView = view;
-            var irrelevantElements = view.Grid.Children.Cast<UIElement>().Where(e => Grid.GetRow(e) == 2);
-            foreach (var uiElement in irrelevantElements)
-            {
-                uiElement.Visibility = Visibility.Collapsed;
-            }
+            var secondGridRow = GetGridRowChildElement(1);
+            secondGridRow.Visibility = Visibility.Collapsed;
         }
 
         public override void Execute(IProgress<int> progress)
         {
-            var parser = new WordsDataParser();
+            var parser = new SynonymsRelationshipParser();
             var wordsData = parser.Parse(WordsFilePath, progress);
-            var repo = new Repository();
+            var repo = new Repository(progress);
             progress.Report(0);
-            repo.Add(wordsData, progress);
+            repo.AddUsingSqlBulkCopy(wordsData);
         }
 
-        public override void MapInputData()
+        public override bool MapInputData()
         {
-                WordsFilePath = _inputView.InputFilePath1;
+            WordsFilePath = _inputView.InputFilePath1;
+            return !string.IsNullOrEmpty(WordsFilePath);
         }
     }
 }

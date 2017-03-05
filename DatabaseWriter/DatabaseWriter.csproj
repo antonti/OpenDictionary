@@ -68,29 +68,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAL\Repository.cs" />
-    <Compile Include="Definition.cs">
-      <DependentUpon>DictionaryModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Data Parsers\SynonymsRelationshipParser.cs" />
+    <Compile Include="Data Parsers\SynsetsRelationshipParser.cs" />
+    <Compile Include="Data Parsers\WordsRelationshipParser.cs" />
+    <Compile Include="Infrastructure\HyponymHypernymOperationModel.cs" />
+    <Compile Include="Infrastructure\InstanceHasInstanceOperationModel.cs" />
+    <Compile Include="Infrastructure\IValidatable.cs" />
     <Compile Include="Infrastructure\OperationModelBase.cs" />
     <Compile Include="Infrastructure\DefinitionsOperationModel.cs" />
-    <Compile Include="DictionaryModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DictionaryModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DictionaryModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DictionaryModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data Parsers\DefinitionsDataParser.cs" />
     <Compile Include="Data Parsers\WordDefinitionParser.cs" />
     <Compile Include="Data Parsers\WordsDataParser.cs" />
     <Compile Include="Infrastructure\WordsOperationModel.cs" />
     <Compile Include="Infrastructure\WordDefinitionOperationModel.cs" />
-    <Compile Include="Infrastructure\Router.cs" />
-    <Compile Include="Views\MultipleInputFilePicker.xaml.cs">
-      <DependentUpon>MultipleInputFilePicker.xaml</DependentUpon>
+    <Compile Include="Infrastructure\OperationModelCreator.cs" />
+    <Compile Include="Views\InputPickerView.xaml.cs">
+      <DependentUpon>InputPickerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProgressBarView.xaml.cs">
       <DependentUpon>ProgressBarView.xaml</DependentUpon>
@@ -98,10 +91,7 @@
     <Compile Include="Views\StartupView.xaml.cs">
       <DependentUpon>StartupView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Word.cs">
-      <DependentUpon>DictionaryModel.tt</DependentUpon>
-    </Compile>
-    <Page Include="Views\MultipleInputFilePicker.xaml">
+    <Page Include="Views\InputPickerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,13 +134,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Dictionary.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Dictionary.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Dictionary.edmx.diagram">
-      <DependentUpon>Dictionary.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,16 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dictionary.edmx.sql" />
-    <Content Include="DictionaryModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DictionaryModel.Context.cs</LastGenOutput>
-      <DependentUpon>Dictionary.edmx</DependentUpon>
-    </Content>
-    <Content Include="DictionaryModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DictionaryModel.cs</LastGenOutput>
-      <DependentUpon>Dictionary.edmx</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

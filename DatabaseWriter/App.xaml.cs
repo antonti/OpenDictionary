@@ -1,4 +1,5 @@
 ﻿using DatabaseWriter.Infrastructure;
+using DatabaseWriter.Views;
 using System.Windows;
 
 namespace DatabaseWriter
@@ -11,8 +12,12 @@ namespace DatabaseWriter
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            Router router = new Router();
-            MainWindow mainWindow = new MainWindow(router);
+            InputPickerView inputView = new InputPickerView();
+            OperationModelCreator operationModelCreator = new OperationModelCreator(inputView);
+            inputView.OperationModelCreator = operationModelCreator;
+            StartupView startupView = new StartupView(operationModelCreator);
+            ProgressBarView progressView = new ProgressBarView(operationModelCreator);
+            MainWindow mainWindow = new MainWindow(startupView,inputView,progressView);
             mainWindow.Show();
         }
     }

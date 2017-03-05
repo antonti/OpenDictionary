@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="333.835" Width="Auto" Height="Auto">
     
     <StackPanel>
-        <TextBlock Height="50" Text="I want to insert into database(choose):" Padding="10" FontSize="18" />
+        <TextBlock Height="50" Text="I want to insert into the database:" Padding="10" FontSize="18" />
         <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Height="25" Margin="0,20,0,0" Width="300" SelectionChanged="comboBox_SelectionChanged" />
     </StackPanel>
     

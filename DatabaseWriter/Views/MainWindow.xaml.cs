@@ -1,7 +1,9 @@
 ﻿using DatabaseWriter.Infrastructure;
 using DatabaseWriter.Views;
 using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DatabaseWriter
 {
@@ -10,26 +12,26 @@ namespace DatabaseWriter
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly List<UserControl> _views;
         private int _currentPage;
 
-        private Router _router;
-
-        public MainWindow(Router router)
+        public MainWindow(StartupView startupView, InputPickerView inputView, ProgressBarView progressView)
         {
             InitializeComponent();
-            _router = router;
+            _views = new List<UserControl>() { startupView, inputView, progressView };
             _currentPage = 0;
-            View.Content = _router.CurrentRoute[_currentPage];
+            View.Content = _views[_currentPage];
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            View.Content = _router.CurrentRoute[++_currentPage];
+            if (((IValidatable)_views[_currentPage]).IsValid())
+                View.Content = _views[++_currentPage];
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            View.Content = _router.CurrentRoute[--_currentPage];
+            View.Content = _views[--_currentPage];
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

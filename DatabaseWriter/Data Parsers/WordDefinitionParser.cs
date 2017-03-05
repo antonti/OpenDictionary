@@ -10,15 +10,26 @@ namespace DatabaseWriter
     {
         public DataTable Parse(string wordsFilePath, string definitionsFilePath, IProgress<int> progress)
         {
+            /* Each string in "wordsData" contains a word with all the synsets' information.
+               Synset - set of synonyms in the WordNet which I used as a source.
+               "wordsFile" was separately written in format:
+               word:synsetID,part of speech,number for sorting word's definitions;...,...,...;+ */
             string[] wordsData = File.ReadAllLines(wordsFilePath);
+            
+            // "definitionsData" contains definitions with examples for words in original format of the WordNet's prolog version
             string[] definitionsData = File.ReadAllLines(definitionsFilePath);
 
+            /* Parsing "definitions" to get original IDs to match words and definitions that were 
+            separately loaded into database using this app.
+            Using class Dictionary to avoid parsing the file multiple times. */   
             Dictionary<string, int> definitionIDs = GetDefinitionIDs(definitionsData);
 
             DataTable dt = new DataTable();
             dt.TableName = "WordDefinition";
+
             string wordIDColumn = "Words_WordID";
             string definitionIDColumn = "Definitions_DefinitionID";
+
             dt.Columns.Add(wordIDColumn);
             dt.Columns.Add(definitionIDColumn);
 
@@ -52,6 +63,9 @@ namespace DatabaseWriter
         private Dictionary<string, int> GetDefinitionIDs(string[] definitions)
         {
             var definitionIDs = new Dictionary<string, int>();
+
+            /* "definitionDatabaseID" reflects "definitionID" in the database 
+            by ordering in the input file which is precise */
             int definitionDatabaseID = 0;
             foreach (var definition in definitions)
             {
