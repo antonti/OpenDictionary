@@ -1,5 +1,0 @@
-﻿DELETE FROM Definitions;
-GO
-
-DBCC CHECKIDENT(Definitions, RESEED, 0);
-GO

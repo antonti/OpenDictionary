@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryWebAPI", "Diction
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryWebAPI.Tests", "DictionaryWebAPI.Tests\DictionaryWebAPI.Tests.csproj", "{2DBCC3B5-2162-4098-B1F2-305CAC2CC8D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VocabularyBuilder", "..\VocabularyBuilder\VocabularyBuilder\VocabularyBuilder.csproj", "{EEE622DE-9986-4064-BFE4-36B60BF6E7E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VocabularyBuilder", "VocabularyBuilder\VocabularyBuilder.csproj", "{EEE622DE-9986-4064-BFE4-36B60BF6E7E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
