@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 
@@ -8,18 +9,26 @@ namespace DatabaseWriter
     public class WordsDataParser
     {
 
-        public IEnumerable<Word> Parse(string wordsFilePath, IProgress<int> progress)
+        public DataTable Parse(string wordsFilePath, IProgress<int> progress)
         {
+            DataTable dt = new DataTable();
+            dt.TableName = "Words";
+            string firstColumnName = "WordID";
+            string secondColumnName = "word";
+            dt.Columns.Add(firstColumnName);
+            dt.Columns.Add(secondColumnName);
+
             string[] wordsData = File.ReadAllLines(wordsFilePath);
-            List<Word> words = new List<Word>();
+            
             foreach (var wordString in wordsData)
             {
                 if (string.IsNullOrEmpty(wordString)) continue;
                 var word = wordString.Split(':').First();
-                var w = new Word() { word = word };
-                words.Add(w);
+                DataRow row = dt.NewRow();
+                row[secondColumnName] = word;
+                dt.Rows.Add(row);
             }
-            return words;
+            return dt;
         }
 
     }

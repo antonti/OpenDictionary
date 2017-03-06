@@ -32,7 +32,7 @@ namespace DatabaseWriter.Infrastructure
             var definitionsData = parser.Parse(DefinitionsFilePath, progress);
             var repo = new Repository(progress);
             progress.Report(0);
-            repo.Add(definitionsData);
+            repo.AddUsingSqlBulkCopy(definitionsData);
         }
 
         public override bool MapInputData()

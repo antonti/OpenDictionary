@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 
 namespace DatabaseWriter
@@ -7,10 +8,22 @@ namespace DatabaseWriter
     public class DefinitionsDataParser
     {
 
-        public IEnumerable<Definition> Parse(string definitionsFilePath, IProgress<int> progress)
+        public DataTable Parse(string definitionsFilePath, IProgress<int> progress)
         {
+            DataTable dt = new DataTable();
+            dt.TableName = "Definitions";
+            string firstColumnName = "DefinitionID";
+            string secondColumnName = "partOfSpeech";
+            string thirdColumnName = "definition";
+            string fourthColumnName = "example";
+
+            dt.Columns.Add(firstColumnName);
+            dt.Columns.Add(secondColumnName);
+            dt.Columns.Add(thirdColumnName);
+            dt.Columns.Add(fourthColumnName);
+
             string[] definitionsData = File.ReadAllLines(definitionsFilePath);
-            List<Definition> definitions = new List<Definition>();
+            
             foreach (var definitionString in definitionsData)
             {
                 if (string.IsNullOrEmpty(definitionString)) continue;
@@ -30,10 +43,13 @@ namespace DatabaseWriter
 
                 if (string.IsNullOrEmpty(example)) example = null;
 
-                var fullDefinition = new Definition() { partOfSpeech = partOfSpeech, definition = definition.Trim(' ','\0'), example = example };
-                definitions.Add(fullDefinition);
+                DataRow row = dt.NewRow();
+                row[secondColumnName] = partOfSpeech;
+                row[thirdColumnName] = definition.Trim(' ', '\0');
+                row[fourthColumnName] = example;
+                dt.Rows.Add(row);
             }
-            return definitions;
+            return dt;
         }
 
         private void ProcessDefinitionLine(char[] d, char[] ex, string s)
